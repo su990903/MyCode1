@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.min.css">
+    <script src="./js/flexible.js"></script>
+    <script src="./js/tabfn.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            width: 500px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-tit">
+                <img src="./img/QQ_01.png" alt="">
+            </div>
+            <div class="header-logo">
+                <div class="logo-left">
+                    <img src="./img/lo.jpg" alt="">
+                </div>
+                <div class="logo-cen">
+                    <p>你认真的样子真酷</p>
+                    <span>谁说不可兼得 鱼和熊掌我都要 于是这墙我佛都跳</span>
+                </div>
+            </div>
+            <div class="header-foorer">
+                <input type="text" placeholder="搜索">
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-tit">
+                <div class="tit-le">消息</div>
+                <div class="tit-ce">联系人</div>
+                <div class="tit-ri">动态</div>
+            </div>
+            <div class="main-text">
+                <div class="main-text-box">
+                    <div class="text-img"><img src="./img/1.jpg" alt=""></div>
+                    <div class="text-texts">
+                        <p>1707E H5班级群</p>
+                        <span></span>
+                    </div>
+                    <div class="del">删除</div>
+                </div>
+
+                <div class="main-text-box">
+                    <div class="text-img"><img src="./img/2.jpg" alt=""></div>
+                    <div class="text-texts">
+                        <p>九九八十一</p>
+                        <span></span>
+                    </div>
+                    <div class="del">删除</div>
+                </div>
+                <div class="main-text-box">
+                    <div class="text-img"><img src="./img/3.jpg" alt=""></div>
+                    <div class="text-texts">
+                        <p>迪丽热巴</p>
+                        <span></span>
+                    </div>
+                    <div class="del">删除</div>
+                </div>
+
+                <div class="main-text-box">
+                    <div class="text-img"><img src="./img/4.jpg" alt=""></div>
+                    <div class="text-texts">
+                        <p>安康</p>
+                        <span></span>
+                    </div>
+                    <div class="del">删除</div>
+                </div>
+            </div>
+        </div>
+        <div class="mock">
+            <div class="mock-left"></div>
+            <div class="mock-right"></div>
+        </div>
+    </div>
+
+    <script>
+        var img = document.querySelector('.logo-left');
+        var mock = document.querySelector('.mock');
+        var right = document.querySelector('.mock-right');
+        var del = [...document.querySelectorAll('.del')];
+        var box = [...document.querySelectorAll('.main-text-box')];
+
+        myTouch.tab(img, function() {
+            mock.classList.add('on');
+            mock.classList.remove('in');
+        })
+
+        myTouch.tab(right, function() {
+            mock.classList.add('in');
+            mock.classList.remove('on');
+        })
+
+        box.forEach(function(item) {
+            myTouch.swiper(item, 'left', function() {
+                item.querySelector('.del').classList.add('active');
+                item.querySelector('.del').classList.remove('active1')
+
+            })
+
+            myTouch.swiper(item, 'right', function() {
+                item.querySelector('.del').classList.add('active1');
+                item.querySelector('.del').classList.remove('active');
+            })
+        })
+
+        del.forEach(function(item) {
+            myTouch.tab(item, function() {
+                item.parentNode.remove()
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+@function rem($px) {
+    @return $px / 37.5px * 1rem; //把px单位换算成rem单位。 $designWidth ：视觉稿的宽度
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: rem(375px);
+    height: 100%;
+    .header {
+        width: rem(375px);
+        height: rem(150px);
+        color: #fff;
+        background: #212121;
+    }
+    .main {
+        flex: 1;
+        background: #eee;
+    }
+}
+
+.header {
+    .header-tit {
+        width: rem(375px);
+        height: rem(40px);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .header-logo {
+        display: flex;
+        width: rem(375px);
+        height: rem(80px);
+        .logo-left {
+            width: rem(80px);
+            height: rem(80px);
+            img {
+                width: rem(55px);
+                height: rem(55px);
+                border-radius: 50%;
+                margin-top: rem(10px);
+                margin-left: rem(12px);
+            }
+        }
+        .logo-cen {
+            width: rem(295px);
+            height: rem(80px);
+            p {
+                font-size: rem(17px);
+                font-weight: bold;
+                margin-top: rem(10px);
+            }
+        }
+    }
+    .header-foorer {
+        width: rem(375px);
+        height: rem(30px);
+        input {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #333;
+            text-indent: 1em;
+            color: #fff;
+            font-size: rem(15px);
+        }
+    }
+}
+
+.main {
+    .main-tit {
+        display: flex;
+        width: rem(375px);
+        height: rem(45px);
+        background: #ccc;
+        div {
+            height: rem(45px);
+            flex: 3;
+            text-align: center;
+            line-height: rem(45px);
+            font-size: rem(18px);
+        }
+        .tit-le {
+            border-bottom: 2px solid #333;
+        }
+    }
+    .main-text {
+        width: rem(375px);
+        height: auto;
+        background: #eee;
+        .main-text-box {
+            display: flex;
+            overflow: hidden;
+            width: rem(375px);
+            height: rem(65px);
+            border-bottom: 1px solid #bebebe;
+            .text-img {
+                width: rem(65px);
+                height: rem(65px);
+                img {
+                    width: rem(45px);
+                    height: rem(45px);
+                    border-radius: 50%;
+                    margin-top: rem(10px);
+                    margin-left: rem(12px)
+                }
+            }
+            .text-texts {
+                width: rem(310px);
+                height: rem(65px);
+                p {
+                    font-size: rem(15px);
+                    font-weight: bold;
+                    margin-top: rem(12px);
+                }
+            }
+            .del {
+                width: rem(80px);
+                height: rem(65px);
+                color: #fff;
+                text-align: center;
+                line-height: rem(65px);
+                background: red;
+            }
+        }
+    }
+}
+
+.container {
+    position: relative;
+    .mock {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: rem(375px);
+        height: 100%;
+        transform: translate(-130%);
+        .mock-left {
+            width: rem(300px);
+            height: 100%;
+            background: #fff;
+        }
+        .mock-right {
+            width: rem(75px);
+            height: 100%;
+            background: rgba(0, 0, 0, .3)
+        }
+    }
+    .on {
+        animation: tan 0.5s linear forwards;
+    }
+    .in {
+        animation: tan1 0.5s linear;
+    }
+}
+
+@keyframes tan {
+    from {
+        transform: translate(-130%);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+
+@keyframes tan1 {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(-130%);
+    }
+}
+
+.del {
+    transform: translate(100%);
+}
+
+.active {
+    animation: move1 0.3s linear forwards;
+}
+
+.active1 {
+    animation: move2 0.3s linear;
+}
+
+@keyframes move1 {
+    to {
+        transform: translate(0)
+    }
+}
+
+@keyframes move2 {
+    from {
+        transform: translate(0)
+    }
+    to {
+        transform: translate(100%);
+    }
+}
